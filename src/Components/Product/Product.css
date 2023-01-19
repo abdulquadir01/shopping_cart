@@ -1,0 +1,8 @@
+.product{
+    /* display:flex;
+    flex-direction: column;
+    width: 300px; */
+    border:2px solid red;
+    /* margin: 1rem auto; */
+    margin-bottom: 0.5rem;
+}
