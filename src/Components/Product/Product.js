@@ -32,15 +32,15 @@ function Product({ product }) {
         </ul>
         <div className="card-footer">
           { state.cart.some((item) =>  {return item.id === product.id}) ? (
-            <button onClick={() =>{ 
+            <button style={{width:"100%"}} onClick={() =>{ 
             dispatch({
             type: "REMOVE_FROM_CART",
             payload: product
-          })}} type="button" className="btn btn-primary">REMOVE FROM CART</button>
+          })}} type="button" className="btn btn-danger">REMOVE FROM CART</button>
            
           ):(
 
-            <button onClick={() => dispatch({
+            <button style={{width:"100%"}} onClick={() => dispatch({
               type: "ADD_TO_CART",
               payload: { ...product, qty: 1 }
             })} type="button" className="btn btn-primary">ADD TO CART</button>

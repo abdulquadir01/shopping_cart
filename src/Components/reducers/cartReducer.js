@@ -8,7 +8,7 @@ const cartReducer = (state, action) => {
         case "REMOVE_FROM_CART":
             console.log("removed!!!!",action.payload);
             return { ...state, cart: state.cart.filter((cart_element,index)=>{
-                return cart_element.id!==action.payload.id
+                return cart_element.id!==action.payload.id;
             }) }
         default:
             return state;
@@ -16,3 +16,5 @@ const cartReducer = (state, action) => {
 }
 
 export default cartReducer;
+
+
