@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from "react-router-dom"
+import { CartState } from '../Context/Context'
 function Headerr() {
+  const { state: { cart, dispatch } } = CartState();
   return (
     <div className=''>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -14,16 +16,20 @@ function Headerr() {
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             </form>
-            <ul style={{position:"absolute",right:"80px"}}  className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul style={{ position: "absolute", right: "80px" }} className="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li className="nav-item dropdown">
                 <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
                 </NavLink>
                 <ul className="dropdown-menu">
-                  <li><NavLink className="dropdown-item" to="#">Something else here</NavLink></li>
-                  <li><hr className="dropdown-divider" /></li>
-
+                  {cart.map((item) => {
+                    return <>
+                      <li><NavLink className="dropdown-item" to="#">{item.id}</NavLink></li>
+                      <li><hr className="dropdown-divider" /></li>
+                    </>
+                  })
+                  }
                 </ul>
               </li>
 

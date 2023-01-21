@@ -1,5 +1,6 @@
 import React from 'react';
-import {CartState}  from '../../Context/Context';
+import { CartState } from '../Context/Context';
+
 import Product from '../Product/Product';
 import "./Products.css";
 
@@ -8,7 +9,7 @@ function Products() {
   return (
     <div className='products-container'>
        { state.products.map((item,index)=>{
-            return <Product key={item.ID} product={item}/>
+            return <Product key={item.id} product={item}/>
         
         })
       }

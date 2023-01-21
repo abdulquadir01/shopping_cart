@@ -1,9 +1,10 @@
 // import { createContext } from "react";
 import { faker } from '@faker-js/faker';
 import React, { createContext, useContext, useReducer } from 'react';
-import cartReducer from '../reducers/carReducer';
-const Cart = createContext();
+import cartReducer from '../reducers/cartReducer';
 
+const Cart = createContext();
+faker.seed(99);
 
 
 function Context({ children }) {
@@ -12,10 +13,11 @@ function Context({ children }) {
     const products = [...Array(20)].map((item, index) => {
         return {
             "name": faker.commerce.product(),
-            "price": faker.commerce.price(),
+            "price": `Rs.${faker.commerce.price()}`,
             "fashion": faker.image.abstract(),
-            "ID": faker.datatype.uuid(),
-            "Dept": faker.commerce.department()
+            "id": faker.datatype.uuid(),
+            "Dept": faker.commerce.department(),
+            "ratings":faker.datatype.number({ min: 1, max: 5, precision: 1}) 
         }
     });
 
@@ -25,7 +27,7 @@ function Context({ children }) {
         cart: []
     });
 
-    console.log(state);
+    // console.log(state);
 
     return (
         

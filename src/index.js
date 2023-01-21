@@ -5,7 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from "react-router-dom"
-import Context from './Context/Context';
+
+
+import "bootstrap-icons/font/bootstrap-icons.json";
+import Context from './Components/Context/Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
