@@ -42,9 +42,9 @@ function SideNav() {
 
   return (
     <div className='sidenav'>
-    <h1>Filter Products</h1>
+    <h3>Filter Products</h3>
     <div>
-      {
+      {/* {
         ratings.map((item, index) => {
 
           return item ? (<button className='rating-btn' key={index} onClick={() => clickRatingHandler(index)}>
@@ -57,11 +57,20 @@ function SideNav() {
           )
 
         }
-        )}
+        )} */}
         </div>
       
       <OrderRadioButtons filterChangeHandler={filterChangeHandler}/>
       <InStockCheckbox filterChangeHandler={filterChangeHandler} inStock={filterState.inStock}/>
+      <button onClick={()=>
+        filterDispatch({
+          type:"CLEAR_FILTERS",
+          payload:{
+            order:"",
+            inStock:false
+          }
+        })
+      }>Clear all filters</button>
 
     </div>
   )

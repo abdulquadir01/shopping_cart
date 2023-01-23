@@ -2,30 +2,27 @@ import React from 'react';
 import styled from "styled-components";
 
 const Container = styled.div`
-display:flex
+display:flex;
 `;
 
 const LeftPane = styled.div`
 display:flex;
-flex:3
+width:30%;
 `;
 
 const RightPane = styled.div`
 display:flex;
-flex:7 
+width:70%;
 `;
 
 const Header = styled.div`
-background:"yellow"
+background:yellow;
 `;
 
 function Layout({ children }) {
-    const { header, left, right } = children;
+    const {  left, right } = children;
     return (
         <Container>
-            <Header>
-                {header}
-            </Header>
             <LeftPane>
                 {left}
             </LeftPane>

@@ -1,10 +1,13 @@
-.sidenav {
-    display: flex;
-    width: 15%;
-    flex-direction: column;
-  
-}
+ .sidenav {
+     display: flex;
+     flex: 1.5;
+     flex-direction: column;
+     /* position: sticky;
+     top: 0%;
+     left: 0%;
+     z-index: 3; */
+ }
 
-.rating-btn{
+ /* .rating-btn{
     height: 2.5rem;
-}
+}  */

@@ -13,26 +13,22 @@ function Product({ product }) {
         <ul className="list-group list-group-flush">
           <li className="list-group-item"><img className='card-img-top' src={product.fashion} alt="" /></li>
           <li className="list-group-item">{product.name}</li>
-          <li className="list-group-item">{product.price}</li>
+          <li className="list-group-item">Rs.{product.price.split(".")[0]}</li>
           <li className="list-group-item">{
             [...Array(5)].map((item, index) => {
               return (
-
-
-                index < product.ratings ? (<button className='rating-btn' key={index}>
-                  <AiFillStar />
-                </button>)
-                  :
-                  (<button key={index} className='rating-btn'>
-                    <AiOutlineStar />
-                  </button>)
+                  index < product.ratings ? 
+                  <AiFillStar key={index}/>
+               :
+                   <AiOutlineStar key={index}/>
               )
             })
           }</li>
         </ul>
         <div className="card-footer">
-          { state.cart.some((item) =>  {return item.id === product.id}) ? (
-            <button style={{width:"100%"}} onClick={() =>{ 
+          {product.inStock?
+           state.cart.some((item) =>  {return item.id === product.id}) ? (
+            <button disabled={!product.inStock} style={{width:"100%"}} onClick={() =>{ 
             dispatch({
             type: "REMOVE_FROM_CART",
             payload: product
@@ -40,14 +36,13 @@ function Product({ product }) {
            
           ):(
 
-            <button style={{width:"100%"}} onClick={() => dispatch({
+            <button disabled={!product.inStock} style={{width:"100%"}} onClick={() => dispatch({
               type: "ADD_TO_CART",
               payload: { ...product, qty: 1 }
             })} type="button" className="btn btn-primary">ADD TO CART</button>
           )
-
-
-
+            :
+            <button disabled={true} type="button" className="btn btn-outline-secondary">Out of Stock</button>
           }
         </div>
       </div>
